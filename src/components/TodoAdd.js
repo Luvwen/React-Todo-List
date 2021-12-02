@@ -1,5 +1,5 @@
 import React from 'react';
-import { useForm } from '../../hooks/useForm';
+import { useForm } from '../hooks/useForm';
 
 export const TodoAdd = ({ handleAddTodo }) => {
   const [{ description }, handleInputChange, reset] = useForm({
@@ -24,27 +24,22 @@ export const TodoAdd = ({ handleAddTodo }) => {
   };
 
   return (
-    <>
-      <h4>Agregar TODO</h4>
-      <hr />
-
+    <div className='container-todo'>
+      <h4 className='container-todo__title'>Agregar items: </h4>
       <form onSubmit={handleSubmit}>
         <input
           type='text'
           name='description'
           placeholder='Aprender ...'
           autoComplete='off'
-          className='form-control'
+          className='container-todo__input'
           value={description}
           onChange={handleInputChange}
         />
-        <button
-          type='submit'
-          className='btn btn-outline-primary mt-1 btn-block'
-        >
+        <button type='submit' className='container-todo__button'>
           Agregar
         </button>
       </form>
-    </>
+    </div>
   );
 };
